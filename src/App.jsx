@@ -1,4 +1,4 @@
-import { useQuiz } from "./hooks/useQuiz";
+﻿import { useQuiz } from "./hooks/useQuiz";
 
 import LoginPage from "./features/auth/LoginPage";
 import QuizSetupPage from "./features/setup/QuizSetupPage";
@@ -12,12 +12,15 @@ export default function App() {
     questions,
     currentIndex,
     answers,
+    skippedIndices,
     timeLeft,
     loading,
     error,
     handleLogin,
     handleStartQuiz,
     handleAnswer,
+    handleSkip,
+    handleJumpTo,
     handleFinishQuiz,
     handleRestart,
     handleLogout,
@@ -46,8 +49,11 @@ export default function App() {
         questions={questions}
         currentIndex={currentIndex}
         answers={answers}
+        skippedIndices={skippedIndices}
         timeLeft={timeLeft}
         onAnswer={handleAnswer}
+        onSkip={handleSkip}
+        onJumpTo={handleJumpTo}
         onFinishQuiz={handleFinishQuiz}
       />
     );
@@ -58,6 +64,7 @@ export default function App() {
       user={user}
       questions={questions}
       answers={answers}
+      skippedIndices={skippedIndices}
       onRestart={handleRestart}
       onLogout={handleLogout}
     />
